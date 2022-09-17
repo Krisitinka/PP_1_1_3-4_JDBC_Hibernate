@@ -12,7 +12,7 @@ public class UserDaoJDBCImpl implements UserDao {
     private static final String CREATE_USERS_TABLE = "CREATE TABLE IF NOT EXISTS `pp`.users ( " +
             "`id` BIGINT(255) NOT NULL AUTO_INCREMENT UNIQUE, " +
             "`name` VARCHAR(128) NULL, " +
-            "`lastName` VARCHAR(128) NULL, " +
+            "`last_name` VARCHAR(128) NULL, " +
             "`age` TINYINT(255) NULL, " +
             "PRIMARY KEY (`id`)); " ;
     private static final Connection connection= Util.createConnection();
