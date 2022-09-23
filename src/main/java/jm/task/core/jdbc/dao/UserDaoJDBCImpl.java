@@ -7,7 +7,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class UserDaoJDBCImpl implements UserDao {
     private static final String CREATE_USERS_TABLE = "CREATE TABLE IF NOT EXISTS `pp`.users ( " +
             "`id` BIGINT(255) NOT NULL AUTO_INCREMENT UNIQUE, " +
@@ -62,27 +61,27 @@ public class UserDaoJDBCImpl implements UserDao {
             statement.executeUpdate(CREATE_USERS_TABLE);
         }
 
-                catch (SQLException e) {
+        catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-        public List<User> getAllUsers() {
-            List<User> users = new ArrayList<>();
+    public List<User> getAllUsers() {
+        List<User> users = new ArrayList<>();
 
-            try (ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM users")) {
-                while(resultSet.next()) {
-                    User user = new User(resultSet.getString("name"),
-                            resultSet.getString("last_name"), resultSet.getByte("age"));
-                    user.setId(resultSet.getLong("id"));
-                    users.add(user);
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
+        try (ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM users")) {
+            while(resultSet.next()) {
+                User user = new User(resultSet.getString("name"),
+                        resultSet.getString("last_name"), resultSet.getByte("age"));
+                user.setId(resultSet.getLong("id"));
+                users.add(user);
             }
-
-            return users;
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+
+        return users;
+    }
 
 
     public void cleanUsersTable() {

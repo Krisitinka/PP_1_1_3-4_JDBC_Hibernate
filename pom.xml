@@ -20,6 +20,9 @@
         </plugins>
     </build>
 
+    <!-- Hibernate -->
+    <!-- to start need only this -->
+
     <dependencies>
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
@@ -27,6 +30,8 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.25</version>
         </dependency>
+        <!-- Hibernate -->
+        <!-- to start need only this -->
         <!--         Ваши зависимости-->
          <!-- https://mvnrepository.com/artifact/junit/junit -->
          <dependency>
